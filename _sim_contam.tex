@@ -1,0 +1,55 @@
+\section{干渉気体濃度の推定による干渉誤差の抑制}
+ラマンDIALにおいて大気による吸収や測定対象でない様々な気体による吸収は, 
+干渉誤差（オフセット誤差）を発生させる. 
+これは対象気体濃度を算出するためにDIAL方程式を解く際に,
+干渉要素の推定値を含めることで, 
+ある程度補正することが可能である. 
+\cref{equ:contam_err}は干渉要素を補正するための項であり, 
+\cref{equ:n_SO2}から引くことで補正後の対象気体濃度の推定値が得られる.
+$\mathrm{gas}=1,2,...,N$は測定時に推定するガス種を表す. 
+\begin{align}
+    \cntmerr 
+    &= \frac{\Delta \alpha_{\mathrm{air}}+\Sigma_{\mathrm{gas}=1}^N n_{\mathrm{gas}}\Delta \sigma_{\mathrm{gas}}}{\Delta \sigma_{\mathrm{SO2}}}\label{equ:contam_err}
+\end{align}
+硫化水素（\ce{H2S}）は\ce{SO2}と並ぶ主要な火山ガス成分であり, 
+\ce{SO2}と近い波長帯を吸収するため, 影響を及ぼす. 
+特に, 霧島火山のような硫化水素濃度が高い環境では, 
+干渉誤差の影響は強くなるため式\cref{equ:contam_err}の補正項を予め考慮する必要がある. 
+そこで, \ce{H2S}濃度の推定によってどれだけ干渉誤差の抑制が期待できるかシミュレーションで評価した. 
+
+シミュレーションに用いる火山ガス濃度分布には, 
+3章で使用した分布を基に, 
+霧島火山における観測値を参考として, 
+高濃度区間の \ce{H2S} 濃度を1000 ppmに変更したものを用いた\cite{Kirishima}. 
+実際の測定では, 火口の位置の見当はある程度付けることができるため, 
+高濃度区間の中心である視線距離500 mに火口があり, 
+その前後100 mが高濃度区間だと推定できた状況を想定して補正をかけた. 
+補正は一切行わない場合と, 
+大気吸収\subrm{\alpha}{aer}
+\ce{O3}吸収\subrm{n}{O3}\subrm{\sigma}{O3}, 
+\ce{H2S}吸収\subrm{n}{O3}\subrm{\sigma}{O3}について行う場合を比較した. 
+そのうち, \ce{O3}の推定濃度分布は, 観測領域全体で0.005 ppmとし, 
+\ce{H2S}の推定濃度分布は低濃度区間が0 ppm, 
+高濃度区間が0, 500, 600, 800 ppmとしたシミュレーション結果を
+\cref{fig:contam_err}に示す. 
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{images/sim_02_2_contami_result}
+    \caption{\ce{H2S}推定による二酸化硫黄測定への影響}
+    \label{fig:contam_err}
+\end{figure}
+
+\noindent
+まず, 一切補正を行わない場合の\cntmerr は42.4 ppmであるのに対して, 
+大気, \ce{O3}についてのみ補正した場合の\cntmerr は41.2 ppmと, 
+約1 ppmの誤差改善が表れた. 
+そして, さらに\ce{H2S}について高濃度区間で500 ppmと推定した場合の\cntmerr は20.6 ppm, 
+600 ppmと推定した場合の\cntmerr は16.5 ppm, 
+800 ppmと推定した場合の\cntmerr は8.2 ppmと推定値が実際の設定に近づくほど誤差が改善された.  
+
+霧島火山での\ce{H2S}濃度は低い地点では400 ppm, 高い地点では6000 ppmと報告されており, 
+実際の測定で推定することが困難なことを考えると, 
+ラマンDIALを\ce{SO2}測定に適用する場合は\ce{H2S}濃度の低い火山環境を選ぶ必要がある\cite{Kirishima}. 
+しかし, その他の手法で補助的に\ce{H2S}濃度を測定できる場合や, 
+安定した\ce{H2S}濃度環境で事前に妥当な推定値を用意できる場合は, 
+干渉誤差を数 ppm程度まで低減して補正できるといえる. 

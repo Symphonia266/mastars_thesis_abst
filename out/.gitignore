@@ -1,0 +1,25 @@
+# LaTeX build files
+*.aux
+*.log
+*.toc
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.bcf
+*.run.xml
+*.blg
+*.bbl
+*.nav
+*.snm
+
+# Output directory
+out/
+
+# PDF (必要に応じて)
+# *.pdf
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/

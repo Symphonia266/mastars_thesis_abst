@@ -1,0 +1,146 @@
+\section{プルームモデルの導入}
+前章までは, ある区間で火山ガス濃度が一定の理想モデルで検討を行った. 
+本章では, より現実的な火山ガス拡散を考慮するため, 
+プルームモデルを導入し, ラマンDIALによる\ce{SO2}濃度分布観測の適用可能性を評価した. 
+プルームモデルは, 流体の移流拡散方程式の解析解であり, 
+排煙による大気汚染の予測によく用いられる. 
+% 煙源からの風下距離$x$, 風向に直交する水平横断距離$y$ における地表のガス濃度$n_{\mathrm{gas}}$は\cref{equ:plume}で表される.
+% \begin{align}
+%     n_{\mathrm{gas}}(x, y) = \dfrac{Q}{2\pi\omega_{y}(x)\omega_{z}(x)u}
+%     \exp{\left\{
+%         -\frac{y}{2\omega_y^2(x)}
+%     \right\}}
+%     \exp{\left\{
+%         -\frac{H_\mathrm{e}^2}{2\omega_z^2(x)}
+%     \right\}}\label{equ:plume}
+% \end{align}
+% 式中の$Q$は煙の発生源の排出強度, 
+% $u$は風速, 
+% $\omega_{y}, \omega_{z}$はそれぞれ水平および鉛直方向の煙流拡散幅, 
+% $H_\mathrm{e}$は有効煙突高さである. 
+プルームモデルはプルームの拡散幅に依存する関数であり, 
+拡散幅は煙源からの風下距離と大気安定度に従って, 
+煙源から遠く, 大気が不安定であるほど拡散幅は大きくなる. 
+今回, 大気安定度の分類とプルームの拡散幅は, 
+Pasquill-Gifford型の大気拡散モデルに基づいて設定した. 
+
+前章で, 距離分解能調整の有効性であることが示されたため, 
+\ce{SO2}煙流の分布をより細かく得られるように距離分解能をより小さくしたい. 
+そのため, ライダーパラメータは前章までのものを使用しながら, 距離分解能のみ
+レーザのパルス時間幅で10 nsec相当の1.5mに向上させてシミュレーションした. 
+
+\cref{fig:situation_plume}に, シミュレーションに用いる火山ガス濃度の水平面分布を示す. 
+気象条件の例として, 風速 2 m/sec かつ快晴とする拡散しやすい条件と, 
+風速 10 m/sec かつ曇天とする拡散しにくい条件を与え,  
+風向はライダー視線に対して垂直に横切る方向とした.
+また, 火口配置については, ライダー視線が火口直上を横切る場合と, 
+火口から風下 25 m 付近を横切る場合, 
+火口から風下 50 m 付近を横切る場合の3通りを想定した. 
+
+% \cref{fig:situation_plume}に高度1000mの地表面における
+% (a)火山ガスの平面分布と, 
+% (b)ライダー視線上の二酸化硫黄, 硫化水素, オゾンの濃度分布
+% を示す. \cref{fig:plum_map}においてライダー視線はX軸上を通る. 
+% プルームモデルに与える煙流の拡散幅はパスキルの大気安定分類と, 
+% ギフォードの水平・鉛直拡散幅推定によるpasquill-gifford線図を距離方向に拡張した 
+% \cref{fig:pg_spread}を用いた\cite{pasquill}\cite{gifford}. 
+
+% \begin{figure}[htbp]
+%   \centering
+%   \begin{subfigure}{0.49\linewidth}
+%     \centering
+%     \includegraphics[width=\linewidth]{images/sim_04_field_spread_leteral}
+%     \caption{水平拡散幅}
+%     \label{fig:pg_spread_leteral}
+%   \end{subfigure}
+%   \hfill
+%   \begin{subfigure}{0.49\linewidth}
+%     \centering
+%     \includegraphics[width=\linewidth]{images/sim_04_field_spread_vertical}
+%     \caption{鉛直拡散幅}
+%     \label{fig:pg_spread_vertical}
+%   \end{subfigure}
+%   \caption{pasquill-gifford線図}
+%   \label{fig:pg_spread}
+% \end{figure}
+
+\begin{figure}
+    \centering
+    \begin{tabular}{@{}c c@{}}
+        %------------------------
+        % 図1（左上）
+        %------------------------
+        \begin{minipage}[t]{0.5\linewidth}
+            \centering
+            \includegraphics[width=\linewidth]{images/sim_04_env_image_1}
+            \subcaption{弱拡散:水平面分布}
+            \label{fig:plume_low_horizontal}
+        \end{minipage}
+        &
+        %------------------------
+        % 図2（右上）
+        %------------------------
+        \begin{minipage}[t]{0.5\linewidth}
+            \centering
+            \includegraphics[width=\linewidth]{images/sim_04_env_LoS_2}
+            \subcaption{弱拡散:視線上分布}
+            \label{fig:plume_low_los}
+        \end{minipage}
+        \\
+
+        %------------------------
+        % 図3（左下）
+        %------------------------
+        \begin{minipage}[t]{0.5\linewidth}
+            \centering
+            \includegraphics[width=\linewidth]{images/sim_04_env_image_2}
+            \subcaption{強拡散:水平面分布}
+            \label{fig:plume_high_horizontal}
+        \end{minipage}
+        &
+        %------------------------
+        % 図4（右下）
+        %------------------------
+        \begin{minipage}[t]{0.5\linewidth}
+            \centering
+            \includegraphics[width=\linewidth]{images/sim_04_env_LoS_1}
+            \subcaption{強拡散:視線上分布}
+            \label{fig:plume_high_los}
+        \end{minipage}
+    \end{tabular}
+
+    %========================
+    % 図全体キャプション
+    %========================
+    \caption{プルームモデルに従う火山ガス濃度分布の設定}
+    \label{fig:situation_plume}
+
+\end{figure}
+
+弱拡散場でのラマンDIAL測定は, 
+\cref{fig:res_plume_meas_widespread}に示すように,
+手前側の2つのプルームは距離分解能不足によるピークの取りこぼしが発生しているが, 
+奥側のプルームは, 十分に濃度分布の変化を捉えられている.
+それに対して, \cref{fig:res_plume_meas_narrowspread}に示す
+強拡散場でのラマンDIAL測定は,
+手前側の1つ目のプルームはピークの取りこぼしが発生したものの, 
+2つ目以降のプルームについては, 濃度分布の変化を捉えられている.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\linewidth]{images/sim_04_plume_meas_2}
+    \caption{弱拡散場の測定シミュレーション結果}
+    \label{fig:res_plume_meas_widespread}
+\end{figure}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\linewidth]{images/sim_04_plume_meas_1}
+    \caption{強拡散場の測定シミュレーション結果}
+    \label{fig:res_plume_meas_narrowspread}
+\end{figure}
+
+距離分解能を1.5 mに向上させたが弱拡散で火口配置が近い場合や, 
+強拡散で火口直上といった場合など, 
+プルームの濃度分布の変化に測定が追従しきれない場合が明らかになった. 
+しかし, 多くのケースでプルームの濃度分布の変化を捉えられており,
+距離分解能が十分な測定点では５章で示した信号加算を用いることで
+火山ガス濃度分布観測が期待できるといえる. 

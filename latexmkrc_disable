@@ -1,0 +1,25 @@
+$latex = 'uplatex';
+$bibtex = 'upbibtex';
+$dvipdf = 'dvipdfmx %O -o %D %S';
+$makeindex = 'mendex -U %O -o %D %S';
+$ENV{TZ} = 'Asia/Tokyo';
+
+# Output directory for intermediate and final files
+$out_dir = 'out';
+
+# Default: build with LuaLaTeX (direct PDF). This makes `latexmk -pdf` use
+# lualatex. If you need the original platex->dvipdfmx flow, use the
+# "platex-dvipdfmx" recipe below.
+$pdflatex = 'lualatex -interaction=nonstopmode -synctex=1 %O %S';
+$pdf_mode = 1;
+
+# Recipe: platex + dvipdfmx (similar to project's Makefile)
+$recipename{'platex-dvipdfmx'} = [
+	'platex %O %S',
+	'platex %O %S',
+	'platex %O %S',
+	'dvipdfmx %O -o %D %S'
+];
+
+# Helpful cleanup list
+$clean_ext = 'aux bbl blg idx ind ilg toc out synctex.gz dvi log';

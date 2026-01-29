@@ -1,0 +1,113 @@
+\section{ラマンDIAL}
+
+ラマンDIALは, 気体分子固有のラマン散乱光を用いて, 
+測定気体の吸収量の差から濃度分布を推定する手法である. 
+この手法の特徴は, 送信レーザの波長を切り替える必要がなく, 
+受信波長のみで吸収量の異なる2波長を構成できる点にある. 
+ラマンDIALの基本構成を\cref{fig:ramanDIAL}に示す. 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{images/ramanDIAL}
+    \caption{ラマンDIAL構成図}
+    \label{fig:ramanDIAL}
+\end{figure}
+
+ラマンDIALは, 
+照射したレーザ光に対して大気中の酸素分子と窒素分子から生じる2つのラマン散乱光の吸収量の差分から
+気体濃度を測定する遠隔計測システムである. 
+ここで, 対象ガスによってレーザ光が強く吸収される波長をon波長, 吸収されにくい波長をoff波長という. 
+
+ラマン散乱光は入射光と異なる波長をもつ散乱光であり, 
+この波長差は分子ごとに固有である. 
+また, ラマン散乱には長波長側にシフトするストークス散乱と, 
+短波長側にシフトするアンチストークス散乱が存在し, 
+一般的にアンチストークス散乱の強度はストークス散乱と比較して1/10以下と非常に微弱である. 
+
+ラマン散乱光の受信光子数は\cref{equ:power,equ:alpha}で得られる\cite{PowerEqu}. 
+% これにより, 受信光子数は視線上のあらゆる気体吸収によって減衰することを表している. 
+
+% ===詳細バージョン=== 
+% \begin{multline}
+%     P(\lambda,R)=\frac{E_0}{h\lambda_{\rm{ls}}}M \eta q \Delta R \frac{A}{R^2}O(R) \beta_{\rm{ram}}\\
+%     \exp\left[
+%         \int^{R}_{0}\alpha(r, \lambda_{\mathrm{ls}})+\alpha(r, \lambda_{\mathrm{ram}})\dd r 
+%     \right]\label{equ:power}
+% \end{multline}
+
+\begin{align}
+    P(\lambda,R)
+    &=C\cdot \beta_{\mathrm{ram}}
+    \exp\left[
+        \int^{R}_{0}\alpha(r, \lambda_{\mathrm{ls}})+\alpha(r, \lambda_{\mathrm{ram}})\dd r 
+    \right]\label{equ:power}\\    
+    \alpha(\lambda, r) 
+    &= \alpha_{\mathrm{air}}(\lambda)
+    +\sum^{N}_{\mathrm{gas}=1}
+        n_{\mathrm{gas}}(r)\sigma_{\mathrm{gas}}(\lambda)\label{equ:alpha}
+\end{align}
+% 式中の$E_0$はパルスエネルギー, 
+% $h$はプランク定数, 
+% $M$は積算回数, 
+% $q$は光学系の全効率, 
+% $\eta$はディテクターの量子効率, 
+% $\Delta R$は距離分解能, 
+% $A$は受信鏡直径
+% $O(R)$は重なり関数を表す. 
+% 後方ラマン散乱断面積$\beta_{ram}$について, 
+% 窒素による$\beta_{ram}$は$2.8\times10^{-34} \mathrm{m}^2$, 
+% 酸素による$\beta_{ram}$は$3.9\times10^{-34} \mathrm{m}^2$とし\cite{ramanXS},
+% これを0.1した値をアンチストークス散乱の後方散乱断面積とした. 
+式中の$C$はライダーのシステムパラメータ, 
+$\beta_{ram}$は後方ラマン散乱断面積,  
+$\lambda_{\mathrm{ls}}$はレーザ波長, 
+$\lambda_{\mathrm{ram}}$はラマン散乱波長である.  
+\cref{equ:alpha}に示す消散係数$\alpha$は, 大気及び各種気体による吸収の総和であり, 
+ここで$\mathrm{gas}=1,2,…,N$ はガス成分の種類を表す. 
+
+ライダーの受信光子数から二酸化硫黄の濃度分布は\cref{equ:n_SO2}で求められる\cite{DIALEqu}.
+$\Delta\sigma$はon波長とoff波長における
+二酸化硫黄の吸収断面積の差分である. 
+
+\begin{equation}
+    n_{\mathrm{SO2}}
+    =\frac{1}{\Delta\sigma_{\mathrm{SO2}}\Delta R}\ln\left(
+        \frac
+        {P(\lambda_{\mathrm{on}}, R_1)P(\lambda_{\mathrm{off}}, R_2)}
+        {P(\lambda_{\mathrm{on}}, R_2)P(\lambda_{\mathrm{off}}, R_1)}
+    \right)\label{equ:n_SO2}
+    % \Delta\sigma_{\mathrm{SO2}} &= 
+    % \sigma_{\mathrm{SO2}}(\lambda_{\mathrm{on}})-
+    % \sigma_{\mathrm{SO2}}(\lambda_{\mathrm{off}})
+\end{equation}
+
+% \begin{table}[t]
+%   \centering
+%   \caption{System parameters for Raman DIAL.}
+%   \label{tab:system_parameters}
+%   \begin{tabular}{c p{60mm} p{20mm}}
+%     \hline
+%     $E_0$ [mJ] & Pulse energy & 30 \\
+%     $A$ [m] & Diameter of the telescope & 0.6 \\
+%     $M$ & Number of integration times & $100 \si{Hz}\times$30 \si{min} \\
+%     $\eta$ & Quantum efficiency of the detector & 0.3 \\
+%     $q$ & Total efficiency of optics & 0.3 \\
+%     $\Delta R$ [m] & Spatial resolution & 30 \\
+
+%     % $\sigma_{\mathrm{RamanN2}}$ [m$^2$] &
+%     % Stokes Raman scattering cross section of N$_2$ &
+%     % $2.8 \times 10^{-34}$ \\
+
+%     % $\sigma_{\mathrm{RamanO2}}$ [m$^2$] &
+%     % Stokes Raman scattering cross section of O$_2$ &
+%     % $3.9 \times 10^{-34}$ \\
+
+%     % $\sigma'_{\mathrm{ramN2}}$ [m$^2$] &
+%     % anti-Stokes Raman scattering cross section of N$_2$ &
+%     % $2.8 \times 10^{-35}$ \\
+
+%     % $\sigma'_{\mathrm{ramO2}}$ [m$^2$] &
+%     % anti-Stokes Raman scattering cross section of O$_2$ &
+%     % $3.9 \times 10^{-35}$ \\
+%     \hline
+%   \end{tabular}
+% \end{table}

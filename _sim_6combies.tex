@@ -1,0 +1,120 @@
+\section{最適なラマン散乱波長の検討}\label{sec:6combi}
+ラマンDIALによる測定で発生する統計誤差は\cref{equ:stat_err}で求められる. 
+なお, 背景光による影響は無視している. 
+% 式中の$D$はダークカウント, $B_j$は背景光雑音, $F$はディテクターの雑音指数を表す. 
+\begin{align}
+    \varepsilon_{\mathrm{stat}} 
+    &= \dfrac{1}{2\Delta{\sigma}{SO2}\Delta R}\left[
+        \sum^2_{i=1}\sum^2_{j=1}
+        \frac{1}{P_{ij}}
+    \right]
+    \label{equ:stat_err}
+\end{align}
+i=1,2は視線距離$R_1, R_2$であり, 
+j=1,2はon波長及びoff波長を表す
+\cref{equ:stat_err}より, 
+統計誤差\staterr は$P$と$\Delta{\sigma}{SO2}$に依存することがわかる.   
+\ce{SO2}吸収が強すぎる波長では$P$が減衰する一方で, 
+吸収が弱すぎる波長では$\Delta{\sigma}{SO2}$が小さくなるため, 
+それぞれ\staterr は増大する. 
+
+二酸化硫黄の吸収スペクトルを\cref{fig:absorptance_spectrum}に示す. 
+縦軸は消散係数（$=\subrm{n}{gas}(R)\times\subrm{\sigma}{gas}(\lambda)$）である. 
+二酸化硫黄は紫外領域に吸収スペクトルを持ち, 
+300 nm付近の波長では吸収が櫛状に増減する特徴を持つ.
+二酸化硫黄測定にラマンDIALを適応する場合, 
+\cref{equ:stat_err}の$P$と$\Delta{\sigma}{SO2}$はon波長とoff波長に依存し, 
+on波長及びoff波長に相当するラマン散乱波長はレーザ波長に依存する. 
+したがって, 信号強度と差分吸収が十分に確保できるレーザ波長が存在するといえる. 
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{images/sim_01_3gases_absorptance}
+    \caption{二酸化硫黄,硫化水素,オゾンの吸収スペクトル}
+    \label{fig:absorptance_spectrum}
+\end{figure}
+
+また, 受信するon波長とoff波長の構成にも注意する必要がある. 
+酸素分子によるラマン散乱波長はストークスシフトとアンチストークスシフトの2種類存在し, 
+窒素分子についても同様である. 
+レーザ波長に対して生じる4つの波長から受信する2波長を構成する場合, 
+取り得る組み合わせは6通りとなる. 
+先行研究ではNd:YAGの第4高調波である266 nmに対する
+酸素ストークス散乱波長と窒素ストークス散乱波長によるラマンDIALについて検討した\cite{Previous_research}. 
+しかし, \cref{fig:absorptance_spectrum}に示す通り, 
+\ce{SO2}の吸収は240 nm付近や320 nm以降で吸収が弱まるため, 
+レーザ波長とラマン散乱波長の関係によってはアンチストークス散乱波長の利用が優位となる可能性がある. 
+
+以上より, 本研究ではこれら6通りのラマンDIALについて統計誤差をシミュレーションし, 
+二酸化硫黄測定に最適なレーザ波長とラマン散乱波長を探索した. 
+
+シミュレーションについて, 
+観測領域はライダーから距離1 kmまでとし, 
+火山ガスの分布は300 mから700 mの間を高濃度区間, その前後を低濃度区間に設定した. 
+また, 各気体の吸収断面積$\sigma$の気温, 気圧依存性を考慮し, 
+ライダー設置高度を1 kmとした.
+紫外領域で光吸収がある気体の濃度分布は三宅島での平均的な火山ガス濃度観測値を参考に, 
+二酸化硫黄が高濃度区間で30 ppm, 低濃度区間で0.07 ppm, 
+オゾンが観測領域全体で0.005 ppmとし, 
+硫化水素は二酸化硫黄の 1/2 とした\cite{miyake}. 
+システムパラメータ$C$のうち, 
+ライダーのレーザ出力は10 mJ, 
+受信鏡の直径は0.3 m, 
+積算回数はパルス周波数が100 Hzのレーザを10分間積算したもの, 
+距離分解能は5 mとした. 
+% 本研究では波長選択の相対比較に主眼を置くため背景光雑音とダークカウント, 
+% ディテクターの雑音指数は無視した. 
+この条件からライダーの受信光子数を計算し, 統計誤差を導出する. 
+二酸化硫黄の吸収スペクトルがある240 nmから370 nmの間で, 
+6つのラマンシフトの組み合わせそれぞれで, 
+観測領域の最遠方となる995 m地点での統計誤差が最小となるレーザ波長を探索し, 
+その中で最適なラマンシフトの組み合わせを決定した. 
+% ラマンシフトの組み合わせ毎の統計誤差が最小となったレーザ波長を\cref{tab:6combi_ls_wl}に示す. 
+6通りのラマンシフトの組み合わせ毎の二酸化硫黄測定のシミュレーション結果を\cref{fig:res_6combi}に示す. 
+
+% \begin{table}[htbp]
+%     \centering
+%     \begin{tabular}{c|c}
+%         Combination  & Laser wavelength [nm]\\\hline\hline
+%         O2 Stokes, O2 a-Stokes & 334.6 \\
+%         N2 Stokes, O2 a-Stokes & 334.6 \\
+%         O2 Stokes, N2 a-Stokes & 343.7 \\
+%         N2 Stokes, N2 a-Stokes & 338.9 \\
+%         N2 a-Stokes, O2 a-Stokes & 343.6 \\
+%         N2 Stokes, O2 Stokes & 240.0\\
+%     \end{tabular}
+%     \caption{Caption}
+%     \label{tab:6combi_ls_wl}
+% \end{table}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\linewidth]{images/sim_01_n_SO2_6combies_stat_zoom}
+    \caption{ラマンシフト組み合わせ毎の二酸化硫黄測定シミュレーション結果}
+    \label{fig:res_6combi}
+\end{figure}
+
+\noindent
+これより, 統計誤差が最小となるレーザ波長は334.6 nmを使用し, 
+酸素アンチストークス散乱波長（318.0 nm）をon波長, 
+酸素ストークス散乱波長（353.0 nm）をoff波長とすることがわかった. 
+
+\setcounter{inlineitem}{0}
+ここで,先行研究で提案した \inlineitem{itm:st-st} 酸素ストークス散乱波長と窒素ストークス散乱波長の組み合わせと, 
+今回新たに提案する \inlineitem{itm:st-ast} 酸素ストークス散乱波長と酸素アンチストークス散乱波長の組み合わせについて, 
+各波長におけるラマン散乱波長における二酸化硫黄の吸収断面積を\cref{fig:res_cond_shift_dir}に示す. 
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\linewidth]{images/sim_01_cond_2case}
+    \caption{二酸化硫黄の吸収スペクトル上のレーザ波長及びラマン散乱波長}
+    \label{fig:res_cond_shift_dir}
+\end{figure}
+
+\noindent
+\cref{itm:st-st}はoff波長となる酸素ストークス散乱波長（249.3 nm）での吸収断面積が大きい一方で, 
+\cref{itm:st-ast}はレーザ波長（318 nm）やoff波長となる酸素ストークス散乱波長（353 nm）の吸収が比較的弱い. 
+\cref{itm:st-st}での$\Delta\subrm{\sigma}{SO2}$は$6.83\times10^{-24}\mathrm{m^2}$, 
+\cref{itm:st-ast}での$\Delta\subrm{\sigma}{SO2}$は$7.22\times10^{-24}\mathrm{m^2}$と
+\cref{itm:st-ast}の方が差分吸収を僅かに大きい. 
+また, \cref{itm:st-st}で用いる250 nm前後の波長帯は, \cref{fig:absorptance_spectrum}で示したように, 
+硫化水素やオゾンの吸収スペクトルが存在するため, これらの吸収による影響も受けている.  
+以上より, 一般にアンチストークス散乱は散乱強度が弱く利用されにくいが, 
+本研究で設定した条件下では, 統計誤差の観点から有効であることが示された.

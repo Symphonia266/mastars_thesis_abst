@@ -1,0 +1,161 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nyt/global//global/global/global}
+    \entry{DIALEqu}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=e6dfa021ab2b30eb31c2437668d0d1c0}{%
+           family={Ismail},
+           familyi={I\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{e6dfa021ab2b30eb31c2437668d0d1c0}
+      \strng{fullhash}{e6dfa021ab2b30eb31c2437668d0d1c0}
+      \strng{fullhashraw}{e6dfa021ab2b30eb31c2437668d0d1c0}
+      \strng{bibnamehash}{e6dfa021ab2b30eb31c2437668d0d1c0}
+      \strng{authorbibnamehash}{e6dfa021ab2b30eb31c2437668d0d1c0}
+      \strng{authornamehash}{e6dfa021ab2b30eb31c2437668d0d1c0}
+      \strng{authorfullhash}{e6dfa021ab2b30eb31c2437668d0d1c0}
+      \strng{authorfullhashraw}{e6dfa021ab2b30eb31c2437668d0d1c0}
+      \field{sortinit}{I}
+      \field{sortinithash}{8d291c51ee89b6cd86bf5379f0b151d8}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Applied Optics}
+      \field{number}{17}
+      \field{title}{Airborne and spaceborne lidar measurements of water vapor profiles: a sensitivity analysis}
+      \field{volume}{28}
+      \field{year}{1989}
+      \field{pages}{3604\bibrangedash 3615}
+      \range{pages}{12}
+    \endentry
+    \entry{PowerEqu}{inproceedings}{}{}
+      \name{author}{1}{}{%
+        {{hash=53d9322b89636d4d98c8f0d825460507}{%
+           family={McGee},
+           familyi={M\bibinitperiod},
+           given={Thomas\bibnamedelima J.},
+           giveni={T\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+      }
+      \strng{namehash}{53d9322b89636d4d98c8f0d825460507}
+      \strng{fullhash}{53d9322b89636d4d98c8f0d825460507}
+      \strng{fullhashraw}{53d9322b89636d4d98c8f0d825460507}
+      \strng{bibnamehash}{53d9322b89636d4d98c8f0d825460507}
+      \strng{authorbibnamehash}{53d9322b89636d4d98c8f0d825460507}
+      \strng{authornamehash}{53d9322b89636d4d98c8f0d825460507}
+      \strng{authorfullhash}{53d9322b89636d4d98c8f0d825460507}
+      \strng{authorfullhashraw}{53d9322b89636d4d98c8f0d825460507}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{American Geophysical Union Meeting}
+      \field{title}{Raman DIAL measurements of stratospheric ozone in the presence of volcanic aerosols}
+      \field{year}{1993}
+      \field{pages}{956}
+      \range{pages}{1}
+    \endentry
+    \entry{Previous_research}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=2f5c653e82ec476e1741666be1884e8f}{%
+           family={伊藤},
+           familyi={伊\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {東京都立大学 システムデザイン学部}%
+      }
+      \strng{namehash}{2f5c653e82ec476e1741666be1884e8f}
+      \strng{fullhash}{2f5c653e82ec476e1741666be1884e8f}
+      \strng{fullhashraw}{2f5c653e82ec476e1741666be1884e8f}
+      \strng{bibnamehash}{2f5c653e82ec476e1741666be1884e8f}
+      \strng{authorbibnamehash}{2f5c653e82ec476e1741666be1884e8f}
+      \strng{authornamehash}{2f5c653e82ec476e1741666be1884e8f}
+      \strng{authorfullhash}{2f5c653e82ec476e1741666be1884e8f}
+      \strng{authorfullhashraw}{2f5c653e82ec476e1741666be1884e8f}
+      \field{sortinit}{伊}
+      \field{sortinithash}{1047a8bc4e1e76ffe33d649f1bebf5f1}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{特別研究}
+      \field{year}{2022}
+    \endentry
+    \entry{miyake}{misc}{}{}
+      \name{author}{1}{}{%
+        {{hash=2811bb317ccda3ee4caffdf8ccec3216}{%
+           family={{内閣府}},
+           familyi={内\bibinitperiod}}}%
+      }
+      \strng{namehash}{2811bb317ccda3ee4caffdf8ccec3216}
+      \strng{fullhash}{2811bb317ccda3ee4caffdf8ccec3216}
+      \strng{fullhashraw}{2811bb317ccda3ee4caffdf8ccec3216}
+      \strng{bibnamehash}{2811bb317ccda3ee4caffdf8ccec3216}
+      \strng{authorbibnamehash}{2811bb317ccda3ee4caffdf8ccec3216}
+      \strng{authornamehash}{2811bb317ccda3ee4caffdf8ccec3216}
+      \strng{authorfullhash}{2811bb317ccda3ee4caffdf8ccec3216}
+      \strng{authorfullhashraw}{2811bb317ccda3ee4caffdf8ccec3216}
+      \field{sortinit}{内}
+      \field{sortinithash}{948f3f9adbecf73866da2d32d7f32694}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{三宅島火山ガスに関する検討会報告書}
+      \field{year}{2003}
+    \endentry
+    \entry{Kirishima}{article}{}{}
+      \name{author}{3}{}{%
+        {{hash=b6d43f64e1cf85503c8ba5fea4f3e92a}{%
+           family={武},
+           familyi={武\bibinitperiod},
+           given={大場},
+           giveni={大\bibinitperiod}}}%
+        {{hash=876ef46bd4dac4fee53382bbdc9ed8ba}{%
+           family={健治},
+           familyi={健\bibinitperiod},
+           given={野上},
+           giveni={野\bibinitperiod}}}%
+        {{hash=44acab01aa13b6bf648415b14373b672}{%
+           family={順一},
+           familyi={順\bibinitperiod},
+           given={平林},
+           giveni={平\bibinitperiod}}}%
+      }
+      \strng{namehash}{02a03610e92b7003df466eba5e724ca2}
+      \strng{fullhash}{02a03610e92b7003df466eba5e724ca2}
+      \strng{fullhashraw}{02a03610e92b7003df466eba5e724ca2}
+      \strng{bibnamehash}{02a03610e92b7003df466eba5e724ca2}
+      \strng{authorbibnamehash}{02a03610e92b7003df466eba5e724ca2}
+      \strng{authornamehash}{02a03610e92b7003df466eba5e724ca2}
+      \strng{authorfullhash}{02a03610e92b7003df466eba5e724ca2}
+      \strng{authorfullhashraw}{02a03610e92b7003df466eba5e724ca2}
+      \field{sortinit}{武}
+      \field{sortinithash}{770dda29c2f9638c736317dfab66628b}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{langid}{Japanese}
+      \field{title}{霧島火山地帯の温泉水と噴気ガスの化学組成と同位体比から推定される熱水系}
+      \field{volume}{42}
+      \field{year}{1997}
+      \field{pages}{1\bibrangedash 15}
+      \range{pages}{15}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
