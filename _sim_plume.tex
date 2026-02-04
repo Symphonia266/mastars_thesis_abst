@@ -29,7 +29,10 @@ Pasquill-Gifford型の大気拡散モデルに基づいて設定した.
 そのため, ライダーパラメータは前章までのものを使用しながら, 距離分解能のみ
 レーザのパルス時間幅で10 nsec相当の1.5mに向上させてシミュレーションした. 
 
-\cref{fig:situation_plume}に, シミュレーションに用いる火山ガス濃度の水平面分布を示す. 
+\cref{fig:situation_plume}に, シミュレーションに用いる火山ガス濃度の水平面分布, 
+\cref{fig:res_plume_meas_widespread}, 
+\cref{fig:res_plume_meas_narrowspread}にそれぞれの濃度分布における
+ラマンDIAL測定シミュレーション結果を示す. 
 気象条件の例として, 風速 2 m/sec かつ快晴とする拡散しやすい条件と, 
 風速 10 m/sec かつ曇天とする拡散しにくい条件を与え,  
 風向はライダー視線に対して垂直に横切る方向とした.
@@ -117,14 +120,6 @@ Pasquill-Gifford型の大気拡散モデルに基づいて設定した.
 
 \end{figure}
 
-弱拡散場でのラマンDIAL測定は, 
-\cref{fig:res_plume_meas_widespread}に示すように,
-手前側の2つのプルームは距離分解能不足によるピークの取りこぼしが発生しているが, 
-奥側のプルームは, 十分に濃度分布の変化を捉えられている.
-それに対して, \cref{fig:res_plume_meas_narrowspread}に示す
-強拡散場でのラマンDIAL測定は,
-手前側の1つ目のプルームはピークの取りこぼしが発生したものの, 
-2つ目以降のプルームについては, 濃度分布の変化を捉えられている.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=\linewidth]{images/sim_04_plume_meas_2}
@@ -137,6 +132,15 @@ Pasquill-Gifford型の大気拡散モデルに基づいて設定した.
     \caption{強拡散場の測定シミュレーション結果}
     \label{fig:res_plume_meas_narrowspread}
 \end{figure}
+
+\newpage
+\noindent
+弱拡散場でのラマンDIAL測定は, 
+手前側の2つのプルームは距離分解能不足によるピークの取りこぼしが発生しているが, 
+奥側のプルームは, 十分に濃度分布の変化を捉えられている.
+それに対して, 強拡散場でのラマンDIAL測定は,
+手前側の1つ目のプルームはピークの取りこぼしが発生したものの, 
+2つ目以降のプルームについては, 濃度分布の変化を捉えられている.
 
 距離分解能を1.5 mに向上させたが弱拡散で火口配置が近い場合や, 
 強拡散で火口直上といった場合など, 

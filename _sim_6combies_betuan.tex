@@ -100,31 +100,22 @@ on波長及びoff波長に相当するラマン散乱波長はレーザ波長に
 本研究で最適と判断された 
 \inlineitem{itm:st-ast} 酸素ストークス散乱波長と酸素アンチストークス散乱波長の構成について, 
 各波長における
-
-二酸化硫黄の吸収断面積を\cref{fig:res_cond_shift_dir}に示す. 
+受信強度の距離特性を\cref{fig:res_cond_power}に示す. 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=\linewidth]{images/sim_01_cond_2case}
-    \caption{
-        最適と判断された2つのラマン散乱波長構成における
-        レーザ波長及びラマン散乱波長の関係
-    }
-    \label{fig:res_cond_shift_dir}
+    \includegraphics[width=\linewidth]{images/sim_01_power.pdf}
+    \caption{2構成の各波長における受信強度の距離特性}
+    \label{fig:res_cond_power}
 \end{figure}
 
 \noindent
 \cref{itm:st-st}では,
-off波長となる酸素ストークス散乱波長（249.3 nm）での吸収が大きく,
-\cref{fig:absorptance_spectrum}で示した
-硫化水素やオゾンの吸収の影響も受けやすい.
-一方,
+on波長, off波長ともに吸収が強いため, 高濃度区間での減衰が著しいが, 
 \cref{itm:st-ast}では,
-レーザ波長およびoff波長が
-\ce{SO2}吸収の比較的弱い領域に位置しており,
-不要な吸収を抑制できる.
-なお, 本研究で重要なのは受信強度そのものではなく, 
-差分吸収量と信号減衰のバランスを考慮した
-波長構成の選択である. 
+不要な吸収を抑え, 遠方での信号強度は十分確保できている. 
+また, $\Delta\subrm{\sigma}{SO2}$についても, 
+\cref{itm:st-st}は$6.83\times10^{-24} \mathrm{m}^2$であるのに対して, 
+\cref{itm:st-ast}は$7.22\times10^{-24} \mathrm{m}^2$と僅かに大きい. 
 
 以上より, 
 本研究で設定した条件下では, 

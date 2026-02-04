@@ -11,8 +11,16 @@
 \setmonofont{Latin Modern Mono}
 
 % 和文（jsarticle 既定相当）
-\setmainjfont{IPAexMincho}
-\setsansjfont{IPAexGothic}
+\setmainjfont[
+    UprightFont   = {Noto Sans JP Regular},   % 通常
+    BoldFont      = {Noto Sans JP Bold},      % 太字
+    MediumFont    = {Noto Sans JP Medium},    % 中太
+    SemiBoldFont  = {Noto Sans JP SemiBold},  % セミボールド
+    BlackFont     = {Noto Sans JP Black},     % 黒字
+    LightFont     = {Noto Sans JP Light},     % 細字
+    ExtraLightFont= {Noto Sans JP ExtraLight},% 極細
+    ExtraBoldFont = {Noto Sans JP ExtraBold}  % 超太字
+]{Noto Sans JP Regular}
 
 \usepackage{eecspresen_m2_mo}
 \usepackage{graphicx}
@@ -26,54 +34,55 @@
 
 \usepackage{subcaption}
 \usepackage[version=4]{mhchem}
-\usepackage[backend=biber,style=numeric,sorting=nyt]{biblatex}
 \usepackage{setspace}
 \usepackage{titlesec}
 \usepackage{indentfirst}
+% \usepackage[backend=biber,style=numeric,sorting=nyt]{biblatex}
+% \usepackage{cite}
 
 \usepackage[british, english]{babel}
 % babelパッケージにjapaneseは無いらしい
 % 以下のDefineBiblio~コマンドを使いたいけれど言語設定が必要なので、
 % 便宜的にjapaneseの代わりにbritishを割り当てておく
-\DefineBibliographyStrings{british}{andothers={他}} % 和文の文献なら「他」
-\DefineBibliographyStrings{english}{andothers={\textit{et al.}}} % 斜体にする
+% \DefineBibliographyStrings{british}{andothers={他}} % 和文の文献なら「他」
+% \DefineBibliographyStrings{english}{andothers={\textit{et al.}}} % 斜体にする
 
-\AtEveryBibitem{ % bibファイルの文献を走査してゆく
-  \iffieldequalstr{langid}{Japanese}{ % if: langid=Japaneseとした文献のみ取得
-    \selectlanguage{british} % 言語をbritishに設定
-    \DeclareDelimFormat{finalnamedelim}{ % 連名の最後に「and」を使わせない
-      \ifnumgreater{\value{liststop}}{2}{\finalandcomma}{}
-    \addspace\multinamedelim }
-    \DeclareFieldFormat{title}{\textrm{「#1」}} % 論文タイトルを鍵括弧
-    \DeclareFieldFormat[book]{title}{\textrm{『#1』}} % 書籍タイトルを二重鍵括弧
-    \DeclareFieldFormat{journaltitle}{\textrm{#1}} % 雑誌タイトルを斜体解除
-    \DeclareFieldFormat{booktitle}{\textrm{#1}} % 書籍タイトルを斜体解除
-    \renewbibmacro{in:}{} % ジャーナル名の前の「In:」を除去
-  }{% ここまでが和文の文献に限った処理
-  \selectlanguage{english}} % else: 欧文の文献はデフォルト（english）の処理で良い
-}
+% \AtEveryBibitem{ % bibファイルの文献を走査してゆく
+%   \iffieldequalstr{langid}{Japanese}{ % if: langid=Japaneseとした文献のみ取得
+%     \selectlanguage{british} % 言語をbritishに設定
+%     \DeclareDelimFormat{finalnamedelim}{ % 連名の最後に「and」を使わせない
+%       \ifnumgreater{\value{liststop}}{2}{\finalandcomma}{}
+%     \addspace\multinamedelim }
+%     \DeclareFieldFormat{title}{\textrm{「#1」}} % 論文タイトルを鍵括弧
+%     \DeclareFieldFormat[book]{title}{\textrm{『#1』}} % 書籍タイトルを二重鍵括弧
+%     \DeclareFieldFormat{journaltitle}{\textrm{#1}} % 雑誌タイトルを斜体解除
+%     \DeclareFieldFormat{booktitle}{\textrm{#1}} % 書籍タイトルを斜体解除
+%     \renewbibmacro{in:}{} % ジャーナル名の前の「In:」を除去
+%   }{% ここまでが和文の文献に限った処理
+%   \selectlanguage{english}} % else: 欧文の文献はデフォルト（english）の処理で良い
+% }
 
-% use workspace bib file
-\addbibresource{reference.bib}
-% 見出しを section* 相当に
-\defbibheading{bibliography}[\refname]{%
-  \section*{\center\normalsize #1}%
-}
+% % use workspace bib file
+% \addbibresource{reference.bib}
+% % 見出しを section* 相当に
+% \defbibheading{bibliography}[\refname]{%
+%   \section*{\center\normalsize #1}%
+% }
 
 % ラベルを [1] 形式に
-\DeclareFieldFormat{labelnumberwidth}{[#1]\hspace{0.5em}}
+% \DeclareFieldFormat{labelnumberwidth}{[#1]\hspace{0.5em}}
 
 
-% 左マージン調整 (thebibliography 相当) -- undefined lengths guarded
-\makeatletter
-\@ifundefined{biblabelsep}{}{\setlength{\biblabelsep}{0pt}}
-\@ifundefined{biblabelwidth}{}{\setlength{\biblabelwidth}{0pt}}
-% \@ifundefined{leftmargin}{}{\setlength{\leftmargin}{0pt}}
+% % 左マージン調整 (thebibliography 相当) -- undefined lengths guarded
+% \makeatletter
+% \@ifundefined{biblabelsep}{}{\setlength{\biblabelsep}{0pt}}
+% \@ifundefined{biblabelwidth}{}{\setlength{\biblabelwidth}{0pt}}
+% % \@ifundefined{leftmargin}{}{\setlength{\leftmargin}{0pt}}
 
-% 各文献間の詰め
-\@ifundefined{bibitemsep}{}{\setlength{\bibitemsep}{0pt}}
-\@ifundefined{bibparsep}{}{\setlength{\bibparsep}{0pt}}
-\makeatother
+% % 各文献間の詰め
+% \@ifundefined{bibitemsep}{}{\setlength{\bibitemsep}{0pt}}
+% \@ifundefined{bibparsep}{}{\setlength{\bibparsep}{0pt}}
+% \makeatother
 
 
 % 行間を詰める
@@ -84,8 +93,8 @@
   {0.5\baselineskip}
 
 % 図表周りの空間調整
-\renewcommand{\textfloatsep}{10pt}  % 図表と本文の間隔（ページ上端・下端）
-\renewcommand{\floatsep}{10pt}      % 図表同士の間隔
+\renewcommand{\textfloatsep}{5pt}  % 図表と本文の間隔（ページ上端・下端）
+\renewcommand{\floatsep}{5pt}      % 図表同士の間隔
 \renewcommand{\intextsep}{5pt}     % 本文中に置かれた図表との間隔
 \renewcommand{\belowcaptionskip}{5pt}
 \captionsetup{
@@ -156,11 +165,13 @@
 \input{_intro}
 \input{_ramDIAL}
 \input{_sim_6combies}
+% \input{_sim_6combies_betuan}
 \input{_sim_contam}
 \input{_sim_stat}
 \input{_sim_plume}
 \input{_outro}
 % Print bibliography from reference.bib using biblatex with custom heading
-\printbibliography[title=参考文献]
+% \printbibliography[title=参考文献]
+\input{bib.tex}
 
 \end{document}
